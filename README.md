@@ -5,6 +5,8 @@
 - The port to be used is 8082.
 - To generate the challenge jar, execute the following Maven command at project's root folder (/artist-challenge/).
   > mvn clean install
+- To execute the challenge jar, which will be generated at the target folder (/artist-challenge/target/), the following command can be used.
+  > java -jar artist-challenge-0.0.1-SNAPSHOT.jar
 - Unitary Tests were developed with JUnit and Mockito for ReleaseService, with 100% coverage. This with the idea of demonstrating the knowledge in testing.
 
 ## Endpoints
