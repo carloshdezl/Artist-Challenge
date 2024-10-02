@@ -23,3 +23,6 @@
     - criteria (String): The criteria used to make the comparison. Possible values: releaseCount, activeYears, genresCount.
     - artistNames (List<String>): A list of names of artists to be compared.
     - Successful Response (200 OK): Returns a list of objects containing the comparison information of the requested artists.
+
+## Code analysis using the IntelliJ IDEA SonarLint Plugin:
+![img.png](img.png)
