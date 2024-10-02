@@ -7,6 +7,7 @@ import com.clara.challenge.converter.ReleaseConverter;
 import com.clara.challenge.dto.ArtistReleasesDTO;
 import com.clara.challenge.dto.SearchResultDTO;
 import com.clara.challenge.dto.SearchResultResponseDTO;
+import com.clara.challenge.exception.NotFoundException;
 import com.clara.challenge.model.Artist;
 import com.clara.challenge.model.Release;
 import com.clara.challenge.repository.ReleaseRepository;
@@ -50,7 +51,8 @@ public class ReleaseService {
 
         if (artistOptional.isEmpty()) {
             if (CollectionUtils.isEmpty(searchResultResponseDTO.getResults())) {
-                throw new RuntimeException("");
+                throw new NotFoundException(
+                        String.format("No records found for the artist %s", artistName));
             }
             artist = artistService.saveArtistByName(artistName);
         }
