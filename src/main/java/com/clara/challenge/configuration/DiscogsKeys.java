@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 @Setter
-public class DiscogsConfig {
+public class DiscogsKeys {
     @Value("${discogs.consumer.key}")
     private String consumerKey;
 

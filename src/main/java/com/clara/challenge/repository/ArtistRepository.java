@@ -26,4 +26,13 @@ public interface ArtistRepository extends JpaRepository<Artist, Long> {
             "GROUP BY a.id " +
             "ORDER BY activeYears DESC")
     List<ArtistComparisonProjection> findArtistActiveYearsByNameInOrderByActiveYears(List<String> names);
+
+    @Query("SELECT g.name AS genreName, COUNT(g) AS usedByCount " +
+            "FROM Genre g " +
+            "JOIN g.release r " +
+            "JOIN r.artist a " +
+            "WHERE a.name IN :names " +
+            "GROUP BY g.name " +
+            "ORDER BY COUNT(g) DESC")
+    List<ArtistComparisonProjection> findMostUsedGenresByArtistNames(List<String> names);
 }

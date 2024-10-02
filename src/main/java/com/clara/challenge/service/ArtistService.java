@@ -43,10 +43,21 @@ public class ArtistService {
                             artistRequestDTO.getArtistNames());
         }
 
+        if ("genresCount".equalsIgnoreCase(artistRequestDTO.getCriteria())) {
+            artistComparisonProjections =
+                    artistRepository.findMostUsedGenresByArtistNames(
+                            artistRequestDTO.getArtistNames());
+        }
+
         return CollectionUtils.isEmpty(artistComparisonProjections) ? null : artistComparisonProjections
                 .stream()
-                .map(projection -> new ArtistComparisonDTO(
-                        projection.getName(), projection.getReleaseCount(), projection.getActiveYears()))
+                .map(projection -> ArtistComparisonDTO.builder()
+                        .artistName(projection.getName())
+                        .genreName(projection.getGenreName())
+                        .releaseCount(projection.getReleaseCount())
+                        .usedByCount(projection.getUsedByCount())
+                        .activeYears(projection.getActiveYears())
+                        .build())
                 .collect(Collectors.toList());
     }
 }

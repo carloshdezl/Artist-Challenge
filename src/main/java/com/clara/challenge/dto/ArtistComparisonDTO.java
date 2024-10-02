@@ -14,7 +14,9 @@ import lombok.Setter;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ArtistComparisonDTO {
-    private String name;
+    private String artistName;
+    private String genreName;
     private Long releaseCount;
     private Long activeYears;
+    private Long usedByCount;
 }

@@ -1,7 +1,7 @@
 package com.clara.challenge.service;
 
 import com.clara.challenge.client.DiscogsClient;
-import com.clara.challenge.configuration.DiscogsConfig;
+import com.clara.challenge.configuration.DiscogsKeys;
 import com.clara.challenge.dto.SearchResultResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DiscogsService {
     private final DiscogsClient discogsClient;
-    private final DiscogsConfig discogsConfig;
+    private final DiscogsKeys discogsKeys;
 
     public SearchResultResponseDTO searchReleasesByArtistName(String artistName) {
         return discogsClient.searchArtist(
-                artistName, discogsConfig.getConsumerKey(),
-                discogsConfig.getConsumerSecret());
+                artistName, discogsKeys.getConsumerKey(),
+                discogsKeys.getConsumerSecret());
     }
 }
