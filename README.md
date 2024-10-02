@@ -3,6 +3,7 @@
 ## Notes
 - Prerequisites: Maven and Java 21.
 - The port to be used is 8082.
+- An in-memory H2 database was set up. The credentials are in the application.properties file. The console can be accessed, while the project is-is running, through: http://localhost:8082/h2-console
 - To generate the challenge jar, execute the following Maven command at project's root folder (/artist-challenge/).
   > mvn clean install
 - To execute the challenge jar, which will be generated at the target folder (/artist-challenge/target/), the following command can be used.
